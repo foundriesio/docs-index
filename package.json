@@ -1,0 +1,62 @@
+{
+  "name": "docs-index",
+  "version": "1.0.0",
+  "description": "And index for foundries.io docs",
+  "scripts": {
+    "start": "npm-run-all --parallel dev:*",
+    "dev:del": "rimraf dist",
+    "dev:webpack": "webpack --config webpack.dev.js",
+    "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet --pathprefix=/",
+    "build": "run-s prod:*",
+    "prod:del": "rimraf build dist",
+    "prod:webpack": "webpack --config webpack.prod.js",
+    "prod:build": "ELEVENTY_ENV=production eleventy --output=./build --pathprefix=/ --quiet",
+    "serve:prod": "ELEVENTY_ENV=production eleventy --output=./build --pathprefix=/ --serve",
+    "lint": "prettier .*.js .*.json *.md *.js *.json ./src/**/*.md ./src/**/*.js --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/foundriesio/docs-index"
+  },
+  "author": "Milo Casagrande <milo@foundries.io>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "@webpack-cli/migrate": "^1.0.2",
+    "acorn": "^8.0.4",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "browserslist": "^4.14.5",
+    "bulma": "^0.9.1",
+    "css-loader": "^5.0.0",
+    "element-closest-polyfill": "^1.0.2",
+    "eslint": "^7.12.0",
+    "eslint-plugin-security": "^1.4.0",
+    "html-minifier": "^4.0.0",
+    "mini-css-extract-plugin": "^1.2.0",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "nunjucks": "^3.2.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.1.4",
+    "postcss-focus-within": "^4.0.0",
+    "postcss-loader": "^4.0.4",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.0.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-merge": "^5.2.0"
+  },
+  "dependencies": {
+    "cookieconsent": "^3.1.1",
+    "core-js": "^3.6.5",
+    "whatwg-fetch": "^3.4.1"
+  }
+}

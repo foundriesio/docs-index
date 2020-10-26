@@ -1,0 +1,23 @@
+@import "./base.scss";
+
+@import "./text.scss";
+@import "./navigation.scss";
+@import "./header.scss";
+
+html, body {
+  height: 100%;
+}
+
+.content-container {
+  width: 100%;
+}
+
+.is-absolute {
+  position: absolute;
+}
+
+.is-float {
+  &-right {
+    float: right;
+  }
+}

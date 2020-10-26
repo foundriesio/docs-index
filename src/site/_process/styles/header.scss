@@ -1,0 +1,83 @@
+.hero-header {
+  background: $hero-curve-bottom no-repeat center calc(100% + 1px) / 100% 65px, $hero-header-gradient;
+  padding-bottom: 65px;
+  color: $white;
+
+  @media (max-width: $desktop) {
+    background-size: 200% 65px, auto;
+    margin-bottom: -65px;
+  }
+
+  &.is-home {
+    background: $hero-wave-bottom no-repeat center calc(100% + 1.5px) / 100% 150px, $hero-header-gradient;
+    position: relative;
+    padding-bottom: 150px;
+
+    @media (max-width: $desktop) {
+      background-size: 200% 150px, auto;
+      margin-bottom: 0;
+    }
+
+    .hero-home-image {
+      position: relative;
+
+      &::after {
+        background: transparent url('/media/hero/home-shadow.png') no-repeat center bottom / contain;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -5%;
+        right: -70%;
+        height: 6rem;
+        width: 150%;
+      }
+
+      img {
+        mix-blend-mode: screen;
+        padding-bottom: 5%;
+      }
+    }
+  }
+
+  .title {
+    font-weight: lighter;
+    color: $white;
+  }
+  .subtitle {
+    color: $white;
+  }
+
+  .header-cta-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    > div {
+      margin-right: 1rem;
+    }
+  }
+
+  .partner-program {
+    p {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .level {
+      .level-item {
+        img {
+          object-fit: contain;
+
+          @media (max-width: $tablet) {
+            max-width: 100px;
+            max-height: 70px;
+          }
+        }
+      }
+      @media (max-width: $tablet) {
+        .level-item:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}

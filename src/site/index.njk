@@ -1,0 +1,38 @@
+---
+layout: docs
+pagination:
+  data: releases
+  size: 12
+permalink: "{% if pagination.pageNumber > 0 %}/r/{{ pagination.pageNumber }}/{% endif %}index.html"
+---
+
+<h1 class="title">Foundries.io Documentation</h1>
+
+{% for batched in pagination.items | batch(4) %}
+  <div class="tile is-ancestor">
+    {% for item in batched %}
+    <div class="tile is-parent">
+      <div class="tile is-child box has-text-centered">
+        <h3 class="title">v{{ item.name }}</h3>
+        <p class="help">
+          Released <time datetime="{{ item.date | dateISOString }}">{{ item.date | releaseDate }}</time>
+        </p>
+        <a href="/{{ item.name }}/">Read documentation</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<nav class="pagination is-centered is-small" role="navigation" aria-label="pagination">
+  {% if pagination.href.previous %}
+  <a href="{{ pagination.href.previous | url }}" class="pagination-previous" rel="prev">Previous</a>
+  {% else %}
+  <a href="#" class="pagination-previous" disabled>Previous</a>
+  {% endif %}
+  {% if pagination.href.next %}
+  <a href="{{ pagination.href.next | url }}" class="pagination-next" rel="next">Next</a>
+  {% else %}
+  <a href="#" class="pagination-next" disabled>Next</a>
+  {% endif %}
+</nav>

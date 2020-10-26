@@ -1,0 +1,58 @@
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110020416-1"></script>
+  <script>
+    if (navigator.doNotTrack === '1') {
+      function gtag() {};
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-110020416-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="preconnect" href="https://cdn.foundries.io/" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.foundries.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+  <link rel="preconnect" href="https://www.google-analytics.com/">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com/">
+
+  <link rel="icon" href="/media/favicon.ico">
+
+  {% if og.environment == "production" %}
+  <link rel="stylesheet" href="{{ '/css/styles.css' | url }}" type="text/css">
+  {% endif %}
+
+  <link rel="canonical" href="{{ metadata.url + page.url }}" />
+
+  <meta property="og:url" content="{{ metadata.url + page.url }}" />
+  {% if ogtype %}
+    <meta property="og:type" content="{{ ogtype }}" />
+  {% else %}
+    <meta property="og:type" content="website" />
+  {% endif %}
+  {% if title or metadata.title %}
+    <meta property="og:title" content="{{ title or metadata.title }}" />
+  {% endif %}
+  {% if ogtype == "article" %}
+    <meta property="og:description" content="{{ description or content | striptags | truncate(196) | trim }}" />
+  {% elseif description or metadata.description %}
+    <meta property="og:description" content="{{ description or metadata.description | striptags | truncate(196) | trim }}" />
+  {% endif %}
+
+  <title>
+    {% if page_title or title or metadata.title %}
+      {{ page_title or title or metadata.title }} | {{ metadata.sitename }}
+    {% else %}
+      {{ metadata.sitename }}
+    {% endif %}
+  </title>
+</head>

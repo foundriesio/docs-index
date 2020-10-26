@@ -1,0 +1,24 @@
+<div class="container">
+  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-item-brand" href="{{ metadata.links.home }}">
+        <img src="{{ '/media/logo.png' | url }}" alt="Foundries logo" loading="lazy" width="114" height="95">
+      </a>
+      <button id="burger" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div id="menu" class="navbar-menu is-vcentered">
+      <div class="navbar-end navbar-start-centered is-login-menu">
+        <div class="navbar-item">
+          <a class="navbar-link is-arrowless is-normal-case" data-login data-original="Login" href="{{ metadata.links.app }}" target="_blank">
+            Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
