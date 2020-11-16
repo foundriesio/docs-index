@@ -20,17 +20,6 @@ steps:
       '/workspace/build/*',
       'gs://$_DOMAIN_NAME'
     ]
-  # Set cache values.
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gsutil'
-    args: [
-      '-m',
-      'setmeta',
-      '-r',
-      '-h',
-      'cache-control: public, max-age=$_MAX_AGE',
-      'gs://$_DOMAIN_NAME/*'
-    ]
 substitutions:
   _DOMAIN_NAME: 'docs.foundries.io'
   _MAX_AGE: '300'
