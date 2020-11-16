@@ -8,6 +8,24 @@ permalink: "{% if pagination.pageNumber > 0 %}/r/{{ pagination.pageNumber }}/{% 
 
 <h1 class="title">Foundries.io Documentation</h1>
 
+{% if pagination.pageNumber == 0 %}
+  {% set item = pagination.items[0] %}
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <div class="tile is-child box has-text-centered">
+        <h3 class="title">
+          <span>Latest</span>
+          <span class="help">(v{{ item.name }})</span>
+        </h3>
+        <p class="help">
+          Released <time datetime="{{ item.date | dateISOString }}">{{ item.date | releaseDate }}</time>
+        </p>
+        <a href="/latest/">Read documentation</a>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 {% for batched in pagination.items | batch(4) %}
   <div class="tile is-ancestor">
     {% for item in batched %}

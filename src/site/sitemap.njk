@@ -4,6 +4,12 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% set latest = releases[0] %}
+  <url>
+    <loc>{{ metadata.url }}/latest/</loc>
+    <lastmod>{{ latest.date.toISOString() }}</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
 {% for page in releases %}
   <url>
     <loc>{{ metadata.url }}/{{ page.name | url }}/</loc>
